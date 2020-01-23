@@ -2,25 +2,17 @@
 // ref: https://github.com/tensorflow/tfjs-converter/blob/master/demo/mobilenet/mobilenet.js
 // ref: https://github.com/tensorflow/tfjs-examples/blob/master/webcam-transfer-learning/index.js
 
-import * as tf from '@tensorflow/tfjs-core';
-import {loadFrozenModel} from '@tensorflow/tfjs-converter';
+import * as tf_core from '@tensorflow/tfjs-core';
+import * as tf from '@tensorflow/tfjs';
 
 import {IMAGENET_CLASSES} from './imagenet_classes';
 import {Webcam} from './webcam';
 import {isMobile} from './utils';
 
-const MODEL_PATH_PREFIX = 'https://storage.googleapis.com/tfjs-models/savedmodel/';
-const MODEL_FILENAME = 'mobilenet_v1_1.0_224/optimized_model.pb';
-const WEIGHTS_FILENAME = 'mobilenet_v1_1.0_224/weights_manifest.json';
-const INPUT_NODE_NAME = 'input';
-const OUTPUT_NODE_NAME = 'MobilenetV1/Predictions/Reshape_1';
-
 window.onload = async () => {
   console.log("tfjs-core version:", tf.version_core);
 
-  const model = await loadFrozenModel(
-      MODEL_PATH_PREFIX + MODEL_FILENAME,
-      MODEL_PATH_PREFIX + WEIGHTS_FILENAME);
+  const model = await tf.loadLayersModel('model.json');
 
   const webcam = new Webcam(document.getElementById('webcam'));
   const resultDiv = document.getElementById('result');

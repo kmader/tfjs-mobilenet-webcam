@@ -14,7 +14,7 @@
  * limitations under the License.
  * =============================================================================
  */
-import * as tf from '@tensorflow/tfjs-core';
+import * as tf from '@tensorflow/tfjs';
 
 /**
  * A class that wraps webcam video elements to capture Tensor4Ds.

@@ -14,8 +14,7 @@
     "clean-all": "rm -rf public/bundle.js node_modules"
   },
   "dependencies": {
-    "@tensorflow/tfjs-converter": "^0.5.9",
-    "@tensorflow/tfjs-core": "^0.12.18"
+    "@tensorflow/tfjs": "^1.2.9"
   },
   "devDependencies": {
     "babel-preset-env": "^1.6.1",
